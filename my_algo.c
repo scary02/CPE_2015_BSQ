@@ -14,32 +14,23 @@
 
 static int	return_algo(int a, int b, int c)
 {
-  int	min;
+  int	m;
 
-  if (a < b)
-    min = a;
-  else
-    min = b;
-  if (min < c)
-    return (min);
-  else
-    return (c);
+  m = (a < b) ? a : b;
+  if (m < c)
+    return (m);
+  return (c);
 }
 
-void	my_algo(t_bsq *in)
+void	my_algo(t_bsq *in, int i, int c)
 {
-  int	i;
-  int	c;
-
-  i = 1;
-  c = 1;
-  in->col += 2;
+  in->col = in->col + 2;
   while (c < in->line && in->tab[c])
     {
       while (i < in->col && in->tab[c][i])
         {
 	  while (in->tab[c][i] == 1 && in->tab[c][i])
-	    i = i + 1;
+	    i++;
 	  if (in->tab[c][i])
 	    {
 	      in->tab[c][i] = return_algo(in->tab[c - 1][i],
@@ -47,10 +38,11 @@ void	my_algo(t_bsq *in)
 					  in->tab[c - 1][i - 1]) + 1;
 	      i++;
 	    }
-        }
-      in->tab[c][i] = 0;
-      i = 1;
+	}
       c++;
+      i = 1;
+      in->tab[c][i] = 0;
     }
   in->tab[c] = 0;
+  return ;
 }

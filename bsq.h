@@ -32,7 +32,7 @@ int		my_puterror(char *);
 int		my_getnbr(char *);
 void		my_putchar(char);
 void		my_print_tab(int **);
-void		my_algo(t_bsq *);
+void		my_algo(t_bsq *, int, int);
 int		return_col(t_bsq *);
 void		print_result(t_bsq *);
 

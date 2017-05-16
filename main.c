@@ -105,7 +105,7 @@ int		main(int ac, char **av)
   init_struct(&in);
   if (process_open(&in, av[1]) == -1)
     return (1);
-  my_algo(&in);
+  my_algo(&in, 1, 1);
   print_result(&in);
   close(in.fd);
   return (0);
